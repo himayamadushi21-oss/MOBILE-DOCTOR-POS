@@ -1,0 +1,12 @@
+function updateReport() {
+    const today = new Date().toISOString().split('T')[0];
+
+    // Dan > Iye > Masa filter karanna
+    const todaysSales = billHistory.filter(item => item.date === today);
+
+    const totalSales = todaysSales.reduce((sum, item) => sum + (item.qty * item.price), 0);
+    document.getElementById('totalSales').textContent = totalSales.toFixed(2);
+
+    const totalItemsSold = todaysSales.reduce((sum, item) => sum + item.qty, 0);
+    document.getElementById('totalItemsSold').textContent = totalItemsSold;
+}

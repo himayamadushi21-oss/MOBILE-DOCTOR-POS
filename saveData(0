@@ -1,0 +1,16 @@
+function saveData() {
+    localStorage.setItem('inventory', JSON.stringify(inventory));
+    localStorage.setItem('bill', JSON.stringify(bill));
+    localStorage.setItem('billHistory', JSON.stringify(billHistory));
+}
+
+function loadData() {
+    const savedInv = localStorage.getItem('inventory');
+    if (savedInv) inventory = JSON.parse(savedInv);
+    
+    const savedBill = localStorage.getItem('bill');
+    if (savedBill) bill = JSON.parse(savedBill);
+    
+    const savedHistory = localStorage.getItem('billHistory'); // meka aluth
+    if (savedHistory) billHistory = JSON.parse(savedHistory);
+}

@@ -1,0 +1,47 @@
+:root {
+  --blue: #007BFF;
+  --green: #28a745;
+  --dark: #1a1a2e;
+  --card: #2a2a4e;
+  --text: #e0e0e0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  margin: 0; padding: 20px;
+}
+.container { max-width: 1100px; margin: auto; }
+header { text-align: center; margin-bottom: 20px; }
+header h1 { color: var(--blue); margin: 0; }
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1a1a2e;
+  color: var(--text);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+button { border: none; font-weight: bold; cursor: pointer; }
+.btn-blue { background: var(--blue); }
+.btn-green { background: var(--green); }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 8px; text-align: left; border-bottom: 1px solid #444; }
+.total { color: var(--green); text-align: right; }
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
+th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+th { background-color: #007BFF; color: white; }
+tr:nth-child(even) { background-color: #2a2a4e; }

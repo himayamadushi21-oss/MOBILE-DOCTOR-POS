@@ -1,0 +1,38 @@
+function showHistory() {
+    const filter = document.getElementById('historyFilter').value;
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+
+    let filtered = billHistory;
+
+    if (filter === 'today') {
+        filtered = billHistory.filter(item => new Date(item.date) >= today);
+    } else if (filter === 'yesterday') {
+        filtered = billHistory.filter(item => {
+            const d = new Date(item.date);
+            return d >= yesterday && d < today;
+        });
+    } else if (filter === 'month') {
+        filtered = billHistory.filter(item => new Date(item.date) >= monthStart);
+    }
+
+    let tableHTML = '<table><tr><th>Date</th><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr>';
+    if(filtered.length === 0) {
+        tableHTML += '<tr><td colspan="5">Data na</td></tr>';
+    } else {
+        filtered.forEach(item => {
+            tableHTML += `<tr>
+                <td>${item.date}</td>
+                <td>${item.name}</td>
+                <td>${item.qty}</td>
+                <td>Rs. ${item.price}</td>
+                <td>Rs. ${(item.qty * item.price).toFixed(2)}</td>
+            </tr>`;
+        });
+    }
+    tableHTML += '</table>';
+    document.getElementById('historyTable').innerHTML = tableHTML;
+}

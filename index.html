@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a1a2e"/>
+<title>MOBILE DOCTOR - POS</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📱 MOBILE DOCTOR</h1>
+    <p>Shop POS System</p>
+  </header>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>🛒 Bill Gahanna</h2>
+      <input type="text" id="itemName" placeholder="Item Name - Ex: Temper Glass">
+      <div class="grid-2">
+        <input type="number" id="itemQty" placeholder="Qty" value="1">
+        <input type="number" id="itemPrice" placeholder="Price Rs">
+      </div>
+      <button id="addToBillBtn" class="btn-blue">Bill Ekata Add</button>
+      <h3>Current Bill</h3>
+      <table id="billTable"><thead><tr><th>Item</th><th>Qty</th><th>Rs</th></tr></thead><tbody></tbody></table>
+      <h2 class="total">Total: Rs. <span id="billTotal">0.00</span></h2>
+      <button id="printBillBtn" class="btn-green">✅ Sell Complete</button>
+    </div>
+
+    <div class="card">
+      <h2>📦 Stock Balance</h2>
+      <input type="text" id="stockName" placeholder="Item Name">
+      <div class="grid-2">
+        <input type="number" id="stockQty" placeholder="Gana Add Karanna">
+        <input type="number" id="stockCost" placeholder="Gena Ganana Rs">
+      </div>
+      <button id="addStockBtn" class="btn-blue">Stock Ekata Add</button>
+      <h3>Stock List</h3>
+      <table id="stockTable"><thead><tr><th>Item</th><th>Qty</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+  <div class="card"><h2>📊 Aajata Report</h2><h3>Total Sell: Rs. <span id="todaySell">0.00</span></h3></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+<!-- Report Section eke yata -->
+<div class="card">
+    <h2>Bill History</h2>
+    <div class="input-group">
+        <select id="historyFilter">
+            <option value="today">Dan</option>
+            <option value="yesterday">Iye</option>
+            <option value="month">Me Masa</option>
+            <option value="all">Okkoma</option>
+        </select>
+        <button onclick="showHistory()">History Balanna</button>
+    </div>
+    <div id="historyTable"></div>
+</div>

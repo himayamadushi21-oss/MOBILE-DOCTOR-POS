@@ -1,0 +1,12 @@
+function sellComplete() {
+    if (bill.length === 0) {
+        alert('Bill eka හිස්යි!');
+        return;
+    }
+    billHistory.push(...bill); // History ekata danna
+    bill = [];
+    saveData();
+    updateBillList();
+    updateReport();
+    alert('Sell Complete! Aajata update una.');
+}
